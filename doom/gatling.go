@@ -15,14 +15,15 @@ func FireRequestsWithPayloads(targetsChan <-chan string) <-chan *networking.Mini
 
 		// We use this to limit max concurrent requests. We send to chan, fire request and then receive from chan.
 		// If channel is full no more requests will be sent.
-		sem := make(chan bool, config.MaxConcurrentHttpRequests)
+		sem := make(chan struct{}, config.MaxConcurrentHttpRequests)
+		defer close(sem)
 
 		for targetUrl := range targetsChan {
 			wg.Add(1)
 
 			go func(url string) {
 				defer wg.Done()
-				sem <- true
+				sem <- struct{}{}
 				fullTargetUrl := url + config.PayloadPath
 				responsesChan <- networking.GetRequestThroughTor(fullTargetUrl)
 				_ = <-sem

@@ -2,9 +2,9 @@ package doom
 
 import (
 	"at-doom-fortigate/config"
-	"at-doom-fortigate/logging"
 	"at-doom-fortigate/networking"
 	"encoding/json"
+	"github.com/rs/zerolog/log"
 	"sync"
 )
 
@@ -23,7 +23,12 @@ func CleanAndParseResponses(responsesChan <-chan *networking.MiniResponseObject)
 
 				if r.RequestError == nil && r.ResponseBody != nil {
 					outputJson, jsonMarshalError := json.Marshal(r)
-					logging.CheckFatalError(jsonMarshalError, "Error encoding struct to JSON")
+
+					if jsonMarshalError != nil {
+						log.Error().Err(jsonMarshalError).Msg("Error encoding struct to JSON")
+						return
+					}
+
 					responseToWrite := append(outputJson, "\n"...)
 					cleanAndParsedResponsesChan <- responseToWrite
 				}
