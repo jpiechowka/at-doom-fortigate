@@ -25,6 +25,10 @@
   
 ```
 
+#### CVE-2018-13379
+
+More infomration on Orange Tsai's Blog: https://blog.orange.tw/2019/08/attacking-ssl-vpn-part-2-breaking-the-fortigate-ssl-vpn.html
+
 #### How to use
 1. Visit https://youtu.be/q657rEkgfKs
 2. Download Rapid7 data in json format for port 10443 from https://opendata.rapid7.com/sonar.https/
