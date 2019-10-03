@@ -1,4 +1,4 @@
-# at-doom-fortigate
+# At Doom Fortigate
 
 ```
  	
@@ -24,6 +24,8 @@
  `''                                                                      ``'
   
 ```
+
+Tool to search for vulnerable hosts in Rapid7 Project Sonar data
 
 #### CVE-2018-13379
 
