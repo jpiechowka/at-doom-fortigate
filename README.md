@@ -25,7 +25,7 @@
   
 ```
 
-Tool to search for vulnerable hosts in Rapid7 Project Sonar data
+Tool to search for vulnerable Fortigate hosts in Rapid7 Project Sonar data anonymously through The Tor network.
 
 #### CVE-2018-13379
 
