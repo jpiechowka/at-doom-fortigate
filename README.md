@@ -38,3 +38,12 @@ More infomration on Orange Tsai's Blog: https://blog.orange.tw/2019/08/attacking
 4. Download and run Tor Browser
 5. Run app
 6. Profit (see results.txt output file or configure output file path in config.go and recompile)
+
+### Building from source code
+To build from source execute the commands below (Go needs to be installed and properly configured, see https://golang.org/doc/install)
+
+```
+git clone https://github.com/jpiechowka/at-doom-fortigate.git
+cd at-doom-fortigate
+go build -v -a .
+```
